@@ -71,7 +71,7 @@ npm run electron-build
 
 Then, run the above command and you will get the packaged or unpackaged version of the electron app in the ./dist folder.
 
-The .exe and the setup is located in the ./dist folder and run budget-calculator-electron.exe. Please be noted that this exe is only applicable for devices running in Window x64. But you also can build the electron app in any platform target.
+The .exe and the setup will be located in the ./dist folder and run **budget-calculator-electron.exe** (The exe file is a little large to upload here). Please be noted that this exe is only applicable for devices running in Window x64. But you also can build the electron app in any platform target.
 
 
 
