@@ -45,6 +45,8 @@ npm run electron-dev
 ```
 
 ## Usage
+The .exe and the setup is located in the ./dist folder and run **budget-calculator-electron.exe**. Please be noted that this exe is only applicable for devices running in Window x64. But you also can build the electron app in any platform target.
+
 Fill up the form and select the type of budget - income or expense from the dropdown and hit the add button. Total income, expenses and balance will be updated upon clicking the add button.
 
 On the menu bar, click Export -> Text File to generate the text report, and Menu -> Open File to import the text report.
@@ -69,9 +71,7 @@ Run the above command to build the app before packaging the electron app.
 npm run electron-build
 ```
 
-Then, run the above command and you will get the packaged or unpackaged version of the electron app in the ./dist folder.
-
-The .exe and the setup will be located in the ./dist folder and run **budget-calculator-electron.exe** (The exe file is a little large to upload here). Please be noted that this exe is only applicable for devices running in Window x64. But you also can build the electron app in any platform target.
+Then, run the above command and you will get the packaged or unpackaged version of the electron app in the dist folder.
 
 
 
