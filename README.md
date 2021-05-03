@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# electron-react budget calculator app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple budget calculator app developed by electron-react. It supports exporting and importing your budget report in text format.
 
-## Available Scripts
+## Electron
 
-In the project directory, you can run:
+Electron is a framework that allows you to create desktop application with Javascript. I keen to highlight the IPC communication and its process type by the Electron, which is known as ipcMain and ipcRenderer. Electron.js is the main script that running the main process and display the GUI, on the other hand, the renderer process communicate with the main process to perform operation on the GUI. 
 
-### `npm start`
+Sending message from the main process to the renderer process,
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+const BrowserWindow = electron.BrowserWindow;
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+mainWindow = new BrowserWindow({ width: 800, height: 600 })
+mainWindow.webContents.send('textFile', res.filePath);
+```
 
-### `npm test`
+Renderer process listens to the channel,
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+const { ipcRenderer } = require('electron');
 
-### `npm run build`
+ipcRenderer.on('textFile', (event, data) => { 
+  console.log(data);
+});
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+## Installation 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Make sure to install [node](https://nodejs.org/en/).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navigate to the project directory and install the node modules
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Development
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run the electron app in development mode.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+# the electron app will run on port 3000
+npm run electron-dev
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Usage
+The .exe and the setup is located in the ./dist folder and run budget-calculator-electron.exe. Please be noted that this exe is only applicable for devices running in Window x64. But you also can build the electron app in any platform target.
 
-## Learn More
+Fill up the form and select the type of budget - income or expense from the dropdown and hit the add button. Total income, expenses and balance will be updated upon clicking the add button.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+On the menu bar, click Export -> Text File to generate the text report, and Menu -> Open File to import the text report.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Production
 
-### Code Splitting
+How to package the electron app? electron-builder is one of the available package to build a ready for distribution electron app. Refer to the [website] [https://www.electron.build/configuration/nsis] for the configuration. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install -g electron-builder
+```
 
-### Analyzing the Bundle Size
+You need to install this package globally in order to run the command successfully.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm run build
+```
 
-### Making a Progressive Web App
+Run the above command to build the app before packaging the electron app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm run electron-build
+```
 
-### Advanced Configuration
+Then, run the above command and you will get the packaged or unpackaged version of the electron app in the dist folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

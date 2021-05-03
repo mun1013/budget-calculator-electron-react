@@ -1,0 +1,137 @@
+.top-container {
+  background-color: #cbf1f5;
+  font-family: sans-serif;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  border-style: solid;
+}
+
+.budget-title {
+  background-color: #a6e3e9;
+  text-align: center;
+  font: 36px;
+  margin-bottom: 10px;
+}
+
+.budget-balance {
+  background-color: #f0c38e;
+  text-align: center;
+  font: 36px;
+  width: 20%;
+  margin: auto;
+  border-style: solid;
+}
+
+.income-title {
+  background-color: #63b7af;
+  text-align: center;
+  font: 36px;
+  float: left;
+  width: 45%;
+  margin: auto;
+  margin-right: 100px;
+  border-style: solid solid none solid;
+}
+
+.total-income {
+  background-color: #63b7af;
+  text-align: center;
+  font: 36px;
+  float: left;
+  width: 45%;
+  margin: auto;
+  margin-right: 100px;
+  border-style: solid;
+}
+
+.expense-title {
+  background-color: #ff577f;
+  text-align: center;
+  font: 36px;
+  float: right;
+  width: 45%;
+  margin: auto;
+  border-style: solid solid none solid;
+}
+
+.total-expense {
+  background-color: #ff577f;
+  text-align: center;
+  font: 36px;
+  float: right;
+  width: 45%;
+  margin: auto;
+  border-style: solid;
+}
+
+.form-year {
+  float: left;
+  text-align: center;
+  margin: 30px 5px;
+  margin-left: 50px;
+  padding: 10px 5px;
+}
+
+.form-month {
+  float: left;
+  text-align: center;
+  margin: 30px 20px;
+  margin-left: 5px;
+  padding: 10px;
+}
+
+.form-income-expenses {
+  float: left;
+  text-align: center;
+  margin: 30px 0px;
+  margin-left: 0px;
+  padding: 10px;
+  width: 60%;
+}
+
+.add-btn {
+  float: left;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 14px;
+  margin-top: 39px;
+}
+
+.income-list {
+  float: left;
+  width: 40%;
+  margin: 10px 60px;
+}
+
+.income-description {
+  float: left;
+  width: 35%;
+  text-align: center;
+}
+
+.income-value {
+  float: right;
+  width: 15%;
+}
+
+.expenses-list {
+  float: right;
+  width: 40%;
+  margin: 10px 50px;
+}
+
+.expenses-description {
+  float: right;
+  width: 35%;
+  text-align: center;
+}
+
+.expenses-value {
+  float: right;
+  width: 15%;
+}
+/*# sourceMappingURL=styles.css.map */

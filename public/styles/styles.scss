@@ -1,0 +1,126 @@
+.top-container {
+  background-color: #cbf1f5;
+  font-family: sans-serif;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  border-style: solid;
+}
+
+@mixin title($backgroundColor) {
+  background-color: $backgroundColor;
+  text-align: center;
+  font: 36px;
+}
+
+.budget-title {
+  @include title(#a6e3e9);
+  margin-bottom: 10px;
+}
+
+.budget-balance {
+  @include title(#f0c38e);
+  width: 20%;
+  margin: auto;
+  border-style: solid;
+}
+
+@mixin income($border) {
+  float: left;
+  width: 45%;
+  margin: auto;
+  margin-right: 100px;
+  border-style: $border;
+}
+
+.income-title {
+  @include title(#63b7af);
+  @include income(solid solid none solid);
+}
+
+.total-income {
+  @include title(#63b7af);
+  @include income(solid);
+}
+
+@mixin expense($border) {
+  float: right;
+  width: 45%;
+  margin: auto;
+  border-style: $border;
+}
+
+.expense-title {
+  @include title(#ff577f);
+  @include expense(solid solid none solid);
+}
+
+.total-expense {
+  @include title(#ff577f);
+  @include expense(solid);
+}
+
+@mixin form($margin, $marginLeft, $padding) {
+  float: left;
+  text-align: center;
+  margin: $margin;
+  margin-left: $marginLeft;
+  padding: $padding;
+}
+
+.form-year {
+  @include form(30px 5px, 50px, 10px 5px);
+}
+
+.form-month {
+  @include form(30px 20px, 5px, 10px);
+}
+
+.form-income-expenses {
+  @include form(30px 0px, 0px, 10px);
+  width: 60%;
+}
+
+.add-btn {
+  float: left;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 14px;
+  margin-top: 39px;
+}
+
+@mixin budget-list($float, $width) {
+  float: $float;
+  width: $width;
+}
+
+.income-list {
+  @include budget-list(left, 40%);
+  margin: 10px 60px;
+}
+
+.income-description {
+  @include budget-list(left, 35%);
+  text-align: center;
+}
+
+.income-value {
+  @include budget-list(right, 15%);
+}
+
+.expenses-list {
+  @include budget-list(right, 40%);
+  margin: 10px 50px;
+}
+
+.expenses-description {
+  @include budget-list(right, 35%);
+  text-align: center;
+}
+
+.expenses-value {
+  @include budget-list(right, 15%);
+}
